@@ -18,7 +18,7 @@ setInterval(() => {
 }, 1);
 
 client.on("message", async message => {
-    if (message.author.id === client.user.id) return;
+    if (message.author.id === client.user.id || message.author.bot) return;
     if (message.guild) return;
     if (config.önerilimit > 0 && önerilimit.has(message.author.id) && önerilimit.get(message.author.id) == config.önerilimit) return message.channel.send("Saatlik Öneri Sınırına Ulaştın!");
     message.channel.send("Önerin Başarıyla İletildi Bir sonraki Öneriyi __**1 Saat**__ Sonra Yapabilirsin")
